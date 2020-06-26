@@ -4,4 +4,16 @@
     background: white;
     position: fixed;
     top: 65px;
+    animation-name: slide;
+    animation-duration: 250ms;
+    animation-timing-function: linear;
+}
+
+@keyframes slide {
+    from {
+        width: 0;
+    }
+    to {
+        width: 67vw;
+    }
 }
