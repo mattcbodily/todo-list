@@ -18,3 +18,11 @@
     height: 35px;
     margin-right: 10px;
 }
+
+.menu-backdrop {
+    height: calc(100vh - 65px);
+    width: 100%;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 65px;
+}
