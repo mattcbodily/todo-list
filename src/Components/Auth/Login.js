@@ -20,7 +20,7 @@ export default props => {
     return (
         <div>
             <input value={email} onChange={e => setEmail(e.target.value)}/>
-            <input value={password} onChange={e => setPassword(e.target.value)}/>
+            <input type='password' value={password} onChange={e => setPassword(e.target.value)}/>
             <button onClick={handleLogin}>Login</button>
             <p>Don't have an account? <Link to='/register'>Sign up here</Link></p>
         </div>

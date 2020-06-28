@@ -1,5 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-export default props => (
-    <div>Tasks</div>
-)
+export default props => {
+    let [user, setUser] = useState(props.location.user)
+
+    return (
+        <div>{user.first_name}</div>
+    )
+}
