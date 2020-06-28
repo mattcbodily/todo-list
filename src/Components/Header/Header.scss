@@ -35,14 +35,11 @@
 }
 
 .menu-backdrop-closed {
-    height: calc(100vh - 65px);
-    width: 100%;
     background: rgba(0,0,0,0);
-    position: fixed;
-    top: 65px;
     animation-name: disappear;
     animation-duration: 150ms;
     animation-timing-function: linear;
+    position: fixed;
 }
 
 @keyframes appear {
