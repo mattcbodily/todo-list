@@ -4,16 +4,35 @@
     background: white;
     position: fixed;
     top: 65px;
-    animation-name: slide;
-    animation-duration: 250ms;
+}
+
+.open {
+    animation-name: slide-open;
+    animation-duration: 150ms;
     animation-timing-function: linear;
 }
 
-@keyframes slide {
+.closed {
+    width: 0;
+    animation-name: slide-closed;
+    animation-duration: 150ms;
+    animation-timing-function: linear;
+}
+
+@keyframes slide-open {
     from {
         width: 0;
     }
     to {
         width: 67vw;
+    }
+}
+
+@keyframes slide-closed {
+    from {
+        width: 67vw;
+    }
+    to {
+        width: 0;
     }
 }

@@ -5,7 +5,15 @@ import moreMenu from '../../assets/more-vertical.svg';
 import './Header.scss';
 
 export default props => {
-    let [menuView, setMenuView] = useState(false);
+    let [menuView, setMenuView] = useState('closed');
+
+    const handleMenuView = () => {
+        if(menuView === 'closed'){
+            setMenuView('open')
+        } else {
+            setMenuView('closed')
+        }
+    }
 
     return (
         <div className='main-header'>
@@ -13,14 +21,10 @@ export default props => {
                 <img className='main-logo' src={logo} alt='Logo' />
                 <h1>Todoit</h1>
             </section>
-            <img src={moreMenu} alt='More Menu' onClick={() => setMenuView(!menuView)} />
-            {menuView
-                ? (
-                    <div className='menu-backdrop'>
-                        <SideMenu />
+            <img className='more-menu' src={moreMenu} alt='More Menu' onClick={handleMenuView} />
+                    <div className={`menu-backdrop-${menuView}`}>
+                        <SideMenu menuView={menuView}/>
                     </div>
-                )
-                : null}
         </div>
     )
 }

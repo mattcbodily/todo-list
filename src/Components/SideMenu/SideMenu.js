@@ -3,6 +3,6 @@ import './SideMenu.scss';
 
 export default props => {
     return (
-        <div className='side-menu'></div>
+        <div className={`side-menu ${props.menuView}`}></div>
     )
 }

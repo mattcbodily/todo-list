@@ -1,7 +1,6 @@
 .main-header {
     height: 65px;
     box-sizing: border-box;
-    padding: 0px 10px;
     display: flex;
     justify-content: space-between;
     background: #1A8FE3;
@@ -12,6 +11,7 @@
 .logo-flex {
     display: flex;
     align-items: center;
+    margin-left: 10px;
 }
 
 .main-logo {
@@ -19,14 +19,29 @@
     margin-right: 10px;
 }
 
-.menu-backdrop {
+.more-menu {
+    margin-right: 10px;
+}
+
+.menu-backdrop-open {
     height: calc(100vh - 65px);
     width: 100%;
     background: rgba(0,0,0,.5);
     position: fixed;
     top: 65px;
     animation-name: appear;
-    animation-duration: 250ms;
+    animation-duration: 150ms;
+    animation-timing-function: linear;
+}
+
+.menu-backdrop-closed {
+    height: calc(100vh - 65px);
+    width: 100%;
+    background: rgba(0,0,0,0);
+    position: fixed;
+    top: 65px;
+    animation-name: disappear;
+    animation-duration: 150ms;
     animation-timing-function: linear;
 }
 
@@ -36,5 +51,14 @@
     }
     to {
         background: rgba(0,0,0,.5);
+    }
+}
+
+@keyframes disappear {
+    from {
+        background: rgba(0,0,0,.5);
+    }
+    to {
+        background: rgba(0,0,0,0);
     }
 }
