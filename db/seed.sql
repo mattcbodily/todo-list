@@ -21,7 +21,6 @@ create table if not exists user_project_join (
 create table if not exists task (
     task_id serial primary key,
     task_name varchar(100),
-    task_progress varchar(50),
     user_id int references users(user_id),
     project_id int references project(project_id),
     complete_by varchar(50)

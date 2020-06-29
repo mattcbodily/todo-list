@@ -9,9 +9,9 @@ export default props => {
         <div>
             <Switch>
                 <Route path='/tasks/general' render={() => <TaskDisplay {...props} taskList='general'/>}/>
-                <Route path='/tasks/today' render={() => <TaskDisplay {...props} />}/>
-                <Route path='/tasks/upcoming' render={() => <TaskDisplay {...props} />}/>
-                <Route path='/tasks/:id' render={() => <TaskDisplay {...props} />}/>
+                <Route path='/tasks/today' render={() => <TaskDisplay {...props} taskList='today'/>}/>
+                <Route path='/tasks/upcoming' render={() => <TaskDisplay {...props} taskList='upcoming'/>}/>
+                <Route path='/tasks/:id' render={() => <TaskDisplay {...props} taskList='project'/>}/>
             </Switch>
         </div>
     )
