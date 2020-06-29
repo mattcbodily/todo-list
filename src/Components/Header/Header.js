@@ -23,7 +23,7 @@ export default props => {
             </section>
             <img className='more-menu' src={moreMenu} alt='More Menu' onClick={handleMenuView} />
                     <div className={`menu-backdrop-${menuView}`}>
-                        <SideMenu menuView={menuView}/>
+                        <SideMenu menuView={menuView} viewFn={handleMenuView}/>
                     </div>
         </div>
     )

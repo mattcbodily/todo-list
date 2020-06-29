@@ -4,9 +4,13 @@
     background: white;
     position: fixed;
     top: 65px;
+    display: flex;
+    flex-direction: column;
 }
 
 .open {
+    box-sizing: border-box;
+    padding: 20px 50px;
     animation-name: slide-open;
     animation-duration: 150ms;
     animation-timing-function: linear;
@@ -17,6 +21,17 @@
     animation-name: slide-closed;
     animation-duration: 150ms;
     animation-timing-function: linear;
+}
+
+.closed .menu-links {
+    display: none;
+}
+
+.menu-links {
+    text-decoration: none;
+    color: black;
+    text-align: left;
+    margin-bottom: 20px;
 }
 
 @keyframes slide-open {
