@@ -45,13 +45,19 @@ export default props => {
         getTasks();
     }, [props.taskList])
 
+    const completeTask = (id) => {
+        axios.put(`/api/task/${id}`)
+        .then(() => getTasks())
+        .catch(err => console.log(err))
+    }
+
     return (
         <div className='task-display'>
             <h1>{props.taskList}</h1>
             {tasks.sort((a, b) => a.complete_by - b.complete_by).map((task, i) => (
                 <section key={i} className='task-container'>
                     <div className='task-checkbox'>
-                        <input type='checkbox' id={`checkbox_${task.task_id}`} />
+                        <input type='checkbox' id={`checkbox_${task.task_id}`} onChange={() => completeTask(task.task_id)}/>
                         <label htmlFor={`checkbox_${task.task_id}`}></label>
                     </div>  
                     <p>{task.task_name}</p>

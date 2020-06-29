@@ -1,2 +1,3 @@
 select * from task
-where project_id = ${id};
+where project_id = ${id}
+and done = false;

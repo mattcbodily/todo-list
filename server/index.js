@@ -36,5 +36,6 @@ app.get('/api/today-tasks/:id/:date', taskCtrl.getTodayTasks);
 app.get('/api/upcoming-tasks/:id/:date', taskCtrl.getUpcomingTasks);
 app.get('/api/project-tasks/:id', taskCtrl.getProjectTasks);
 app.post('/api/task', taskCtrl.createTask);
+app.put('/api/task/:id', taskCtrl.completeTask);
 
 app.listen(SERVER_PORT, () => console.log(`Just do it on ${SERVER_PORT}`));

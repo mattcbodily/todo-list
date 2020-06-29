@@ -39,5 +39,13 @@ module.exports = {
         db.task.create_task({taskName, userId, projectId, completeBy})
         .then(() => res.sendStatus(200))
         .catch(err => res.status(500).send(err))
+    },
+    completeTask: (req, res) => {
+        const {id} = req.params,
+              db = req.app.get('db');
+
+        db.task.complete_task({id})
+        .then(() => res.sendStatus(200))
+        .catch(err => res.status(500).send(err))
     }
 }
