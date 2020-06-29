@@ -8,10 +8,10 @@ export default props => {
     return (
         <div>
             <Switch>
-                <Route exact path='/tasks' render={() => <TaskDisplay {...props} taskList='general' user={user}/>}/>
-                <Route path='/tasks/today' render={() => <TaskDisplay {...props} taskList='today' user={user}/>}/>
-                <Route path='/tasks/upcoming' render={() => <TaskDisplay {...props} taskList='upcoming' user={user}/>}/>
-                <Route path='/tasks/:id' render={() => <TaskDisplay {...props} taskList='project' user={user}/>}/>
+                <Route exact path='/tasks' render={() => <TaskDisplay {...props} taskList='General' user={user}/>}/>
+                <Route path='/tasks/today' render={() => <TaskDisplay {...props} taskList='Today' user={user}/>}/>
+                <Route path='/tasks/upcoming' render={() => <TaskDisplay {...props} taskList='Upcoming' user={user}/>}/>
+                <Route path='/tasks/:id' render={() => <TaskDisplay {...props} taskList='Project' user={user}/>}/>
             </Switch>
         </div>
     )
