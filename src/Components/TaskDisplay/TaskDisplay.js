@@ -75,7 +75,7 @@ export default props => {
     return (
         <div className='task-display'>
             <h1>{props.taskList}</h1>
-            {tasks.sort((a, b) => a.complete_by - b.complete_by).map((task, i) => (
+            {tasks.sort((a, b) => a.complete_by - b.complete_by).map(task => (
                 <section key={task.task_id} className='task-container'>
                     <div className='task-checkbox'>
                         <input type='checkbox' id={`checkbox_${task.task_id}`} onChange={() => completeTask(task.task_id)}/>

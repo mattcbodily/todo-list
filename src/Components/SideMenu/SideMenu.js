@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
+import axios from 'axios';
 import './SideMenu.scss';
 
 export default props => {
+    let [projects, setProjects] = useState([]);
+
     return (
         <nav className={`side-menu ${props.menuView}`}>
             <Link className='menu-links' to='/tasks/general' onClick={props.viewFn}>General</Link>
