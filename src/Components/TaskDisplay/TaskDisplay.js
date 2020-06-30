@@ -5,7 +5,9 @@ import './TaskDisplay.scss';
 
 export default props => {
     let [tasks, setTasks] = useState([]),
-        [addView, setAddView] = useState(false);
+        [addView, setAddView] = useState(false),
+        [taskName, setTaskName] = useState(''),
+        [completeBy, setCompleteBy] = useState('');
 
     const getTasks = () => {
         const { user_id } = props.user,
@@ -45,6 +47,25 @@ export default props => {
         getTasks();
     }, [props.taskList])
 
+    const createTask = () => {
+        const {user_id} = props.user;
+        const {id} = props.match.params;
+
+        let newTask = {
+            taskName,
+            completeBy,
+            userId: user_id,
+            projectId: id || null
+        }
+
+        axios.post('/api/task', newTask)
+        .then(() => {
+            getTasks();
+            setAddView(false);
+        })
+        .catch(err => console.log(err));
+    }
+
     const completeTask = (id) => {
         axios.put(`/api/task/${id}`)
         .then(() => getTasks())
@@ -55,7 +76,7 @@ export default props => {
         <div className='task-display'>
             <h1>{props.taskList}</h1>
             {tasks.sort((a, b) => a.complete_by - b.complete_by).map((task, i) => (
-                <section key={i} className='task-container'>
+                <section key={task.task_id} className='task-container'>
                     <div className='task-checkbox'>
                         <input type='checkbox' id={`checkbox_${task.task_id}`} onChange={() => completeTask(task.task_id)}/>
                         <label htmlFor={`checkbox_${task.task_id}`}></label>
@@ -72,9 +93,9 @@ export default props => {
                 )
             : (
                 <section className='add-task-modal'>
-                    <input />
-                    <input />
-                    <button>Add Task</button>
+                    <input value={taskName} onChange={e => setTaskName(e.target.value)}/>
+                    <input type='date' value={completeBy} onChange={e => setCompleteBy(e.target.value)}/>
+                    <button onClick={createTask}>Add Task</button>
                     <button onClick={() => setAddView(false)}>Cancel</button>
                 </section>
             )}
