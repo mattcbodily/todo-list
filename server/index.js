@@ -6,6 +6,7 @@ const express = require('express'),
       session = require('express-session'),
       authCtrl = require('./controllers/authController'),
       taskCtrl = require('./controllers/taskController'),
+      projectCtrl = require('./controllers/projectController'),
       {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
       app = express();
 
@@ -37,5 +38,9 @@ app.get('/api/upcoming-tasks/:id/:date', taskCtrl.getUpcomingTasks);
 app.get('/api/project-tasks/:id', taskCtrl.getProjectTasks);
 app.post('/api/task', taskCtrl.createTask);
 app.put('/api/task/:id', taskCtrl.completeTask);
+
+//Project Endpoints
+app.get('/api/projects/:id', projectCtrl.getUserProjects);
+app.post('/api/project', projectCtrl.createProject);
 
 app.listen(SERVER_PORT, () => console.log(`Just do it on ${SERVER_PORT}`));
