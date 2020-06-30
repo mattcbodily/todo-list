@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {getUser} from '../../redux/reducer';
 import axios from 'axios';
 
-export default props => {
+const Register = props => {
     let [firstName, setFirstName] = useState(''),
         [lastName, setLastName] = useState(''),
         [email, setEmail] = useState(''),
@@ -11,10 +13,8 @@ export default props => {
     const handleRegister = () => {
         axios.post('/api/register', {firstName, lastName, email, password})
         .then(res => {
-            props.history.push({
-                pathname: '/tasks',
-                user: res.data
-            })
+            props.getUser(res.data);
+            props.history.push('/tasks');
         })
         .catch(err => console.log(err));
     }
@@ -30,3 +30,5 @@ export default props => {
         </div>
     )
 }
+
+export default connect(null, {getUser})(Register);

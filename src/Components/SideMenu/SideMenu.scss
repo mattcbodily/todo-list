@@ -2,6 +2,7 @@
     height: calc(100vh - 65px);
     width: 67vw;
     background: white;
+    color: black;
     position: fixed;
     top: 65px;
     display: flex;
@@ -23,7 +24,7 @@
     animation-timing-function: linear;
 }
 
-.closed .menu-links {
+.closed .menu-links, .closed .project-list-prompt, .closed .add-project {
     display: none;
 }
 
@@ -34,12 +35,20 @@
     margin-bottom: 20px;
 }
 
+.add-project {
+    display: flex;
+}
+
+.add-project img {
+    margin-right: 15px;
+}
+
 @keyframes slide-open {
     from {
-        width: 0;
+        transform: translateX(-67vw);
     }
     to {
-        width: 67vw;
+        transform: translateX(0);
     }
 }
 
