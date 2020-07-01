@@ -8,6 +8,7 @@ import './SideMenu.scss';
 
 const SideMenu = props => {
     let [projects, setProjects] = useState([]),
+        [projectDropdown, setProjectDropdown] = useState(false),
         [modalView, setModalView] = useState(false);
 
     const getProjects = () => {
@@ -20,13 +21,30 @@ const SideMenu = props => {
         getProjects();
     }, [])
 
+    const toggleDropdown = () => {
+        setProjectDropdown(!projectDropdown)
+    }
+
     return (
         <div>
             <nav className={`side-menu ${props.menuView}`}>
                 <Link className='menu-links' to='/tasks/general' onClick={props.viewFn}>General</Link>
                 <Link className='menu-links' to='/tasks/today' onClick={props.viewFn}>Today</Link>
                 <Link className='menu-links' to='/tasks/upcoming' onClick={props.viewFn}>Upcoming</Link>
-                <p className='project-list-prompt'>Projects</p>
+                <p className='project-list-prompt' onClick={toggleDropdown}>Projects</p>
+                {projectDropdown
+                    ? (
+                        <nav className='project-list'>
+                            {projects.map(project => (
+                                <Link
+                                    key={project.project_id}
+                                    className='menu-links'
+                                    onClick={props.viewFn}
+                                    to={`/tasks/${project.project_id}`}>{project.project_name}</Link>
+                            ))}
+                        </nav>
+                    )
+                    : null}
                 <section className='add-project' onClick={() => setModalView(true)}>
                     <img src={addIcon} alt='Add Project' />
                     <p>Add Project</p>
@@ -36,7 +54,7 @@ const SideMenu = props => {
                 ? (
                     <div className='modal-backdrop'>
                         <ProjectModal user={props.user} modalFn={setModalView} projectFn={getProjects} />
-                    </div>  
+                    </div>
                 )
                 : null}
         </div>
