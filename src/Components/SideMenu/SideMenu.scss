@@ -7,11 +7,12 @@
     top: 65px;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .open {
     box-sizing: border-box;
-    padding: 20px 50px;
+    // padding: 20px 50px;
     animation-name: slide-open;
     animation-duration: 150ms;
     animation-timing-function: linear;
@@ -41,6 +42,14 @@
 
 .add-project img {
     margin-right: 15px;
+}
+
+.modal-backdrop {
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
 }
 
 @keyframes slide-open {

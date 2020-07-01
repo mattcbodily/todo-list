@@ -3,7 +3,7 @@ module.exports = {
         const {id} = req.params,
               db = req.app.get('db');
 
-        db.project.get_user_project({id})
+        db.project.get_user_projects({id})
         .then(projects => res.status(200).send(projects))
         .catch(err => res.status(500).send(err))
     },
@@ -13,9 +13,7 @@ module.exports = {
 
         let projectId = await db.project.create_project({projectName});
 
-        console.log(projectId)
-
-        db.project.user_project_join({id, projectId})
+        db.project.user_project_join({id, projectId: projectId[0].project_id})
         .then(() => res.sendStatus(200))
         .catch(err => res.status(500).send(err))
     }

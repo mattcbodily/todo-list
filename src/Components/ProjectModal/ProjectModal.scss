@@ -1,0 +1,53 @@
+.project-modal {
+    height: 260px;
+    width: 320px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -255px;
+    margin-left: -160px;
+    background: snow;
+    color: black;
+    text-align: left;
+}
+
+.project-modal-prompt {
+    height: 35px;
+    border-bottom: 1px solid gray;
+}
+
+.project-modal p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.project-modal input, .project-color {
+    height: 25px;
+    width: 90%;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+
+.button-display {
+    height: 40px;
+    margin-top: 10px;
+    border-top: 1px solid gray;
+}
+
+#add-button {
+    height: 40px;
+    width: 60px;
+    border-radius: 5px;
+    border: none;
+    background: red;
+    color: white;
+}
+
+#cancel-button {
+    height: 40px;
+    width: 80px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
