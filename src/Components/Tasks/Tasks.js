@@ -1,17 +1,12 @@
 import React, {useState} from 'react';
 import {Switch, Route} from 'react-router-dom';
-import {connect} from 'react-redux';
 import TaskDisplay from '../TaskDisplay/TaskDisplay';
 
-const Tasks = props => (
+export default props => (
     <Switch>
-        <Route exact path='/tasks' render={() => <TaskDisplay {...props} taskList='General' user={props.user}/>}/>
-        <Route path='/tasks/today' render={() => <TaskDisplay {...props} taskList='Today' user={props.user}/>}/>
-        <Route path='/tasks/upcoming' render={() => <TaskDisplay {...props} taskList='Upcoming' user={props.user}/>}/>
-        <Route path='/tasks/:id' render={() => <TaskDisplay {...props} taskList='Project' user={props.user}/>}/>
+        <Route exact path='/tasks' render={props => <TaskDisplay {...props} taskList='General'/>}/>
+        <Route path='/tasks/today' render={props => <TaskDisplay {...props} taskList='Today'/>}/>
+        <Route path='/tasks/upcoming' render={props => <TaskDisplay {...props} taskList='Upcoming'/>}/>
+        <Route path='/tasks/:id' render={props => <TaskDisplay {...props} taskList='Project'/>}/>
     </Switch>
 )
-
-const mapStateToProps = reduxState => reduxState;
-
-export default connect(mapStateToProps)(Tasks);

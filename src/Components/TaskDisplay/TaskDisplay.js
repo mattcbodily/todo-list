@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import {connect} from 'react-redux';
 import axios from 'axios';
 import addIcon from '../../assets/plus.svg';
 import './TaskDisplay.scss';
 
-export default props => {
+const TaskDisplay = props => {
     let [tasks, setTasks] = useState([]),
         [addView, setAddView] = useState(false),
         [taskName, setTaskName] = useState(''),
@@ -36,8 +37,6 @@ export default props => {
                     .catch(err => console.log(err))
                 break;
             case 'Project':
-                console.log(props)
-                console.log(id)
                 axios.get(`/api/project-tasks/${id}`)
                     .then(res => setTasks(res.data))
                     .catch(err => console.log(err))
@@ -104,3 +103,7 @@ export default props => {
         </div>
     )
 }
+
+const mapStateToProps = reduxState => reduxState;
+
+export default connect(mapStateToProps)(TaskDisplay);
