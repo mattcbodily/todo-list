@@ -32,7 +32,7 @@ module.exports = {
             }
         })
 
-        let info = await transporter.sendMail({
+        await transporter.sendMail({
             from: `Todoit <${EMAIL}>`,
             to: newUser[0].email,
             subject: 'Welcome to Todoit!',

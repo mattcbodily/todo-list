@@ -1,0 +1,1 @@
+select first_name, user_id, email from users;

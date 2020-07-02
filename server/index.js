@@ -1,12 +1,12 @@
-const taskController = require('./controllers/taskController');
-
 require('dotenv').config();
 const express = require('express'),
       massive = require('massive'),
       session = require('express-session'),
+      cron = require('node-cron'),
       authCtrl = require('./controllers/authController'),
       taskCtrl = require('./controllers/taskController'),
       projectCtrl = require('./controllers/projectController'),
+      emailCtrl = require('./controllers/emailController'),
       {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env,
       app = express();
 
@@ -42,5 +42,10 @@ app.put('/api/task/:id', taskCtrl.completeTask);
 //Project Endpoints
 app.get('/api/projects/:id', projectCtrl.getUserProjects);
 app.post('/api/project', projectCtrl.createProject);
+
+//Daily Emails
+cron.schedule("* * * * Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday", function(){
+    emailCtrl.dailyEmails();
+})
 
 app.listen(SERVER_PORT, () => console.log(`Just do it on ${SERVER_PORT}`));
