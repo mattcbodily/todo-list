@@ -31,12 +31,7 @@ module.exports = {
                 subject: `You have ${userTasks.length} tasks due today`,
                 text: `Hello ${emailList[i].first_name}! You have ${userTasks.length} tasks due today. Visit your profile to get started.`,
                 html: `<div>
-                        <p>Hello ${emailList[i].first_name}! Here are your tasks due today:</p>
-                        <ul>
-                            ${userTasks.map(task => (
-                                <li>{task.task_name}</li>
-                            ))}
-                        </ul>
+                        <p>Hello ${emailList[i].first_name}! You have ${userTasks.length} tasks due today. Visit your profile to get started.</p>
                       </div>`
             })
         }

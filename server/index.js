@@ -44,7 +44,7 @@ app.get('/api/projects/:id', projectCtrl.getUserProjects);
 app.post('/api/project', projectCtrl.createProject);
 
 //Daily Emails
-cron.schedule("* * * * Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday", function(){
+cron.schedule("* * * * Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday", function(){
     emailCtrl.dailyEmails();
 })
 

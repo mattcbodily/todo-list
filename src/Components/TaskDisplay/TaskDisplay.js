@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import {connect} from 'react-redux';
 import axios from 'axios';
-import EditTask from '../EditTask/EditTask';
+import TaskCard from './TaskCard';
 import addIcon from '../../assets/plus.svg';
 import './TaskDisplay.scss';
 
 const TaskDisplay = props => {
     let [tasks, setTasks] = useState([]),
         [addView, setAddView] = useState(false),
-        [editView, setEditView] = useState(false),
         [taskName, setTaskName] = useState(''),
         [completeBy, setCompleteBy] = useState('');
 
@@ -69,23 +68,11 @@ const TaskDisplay = props => {
         .catch(err => console.log(err));
     }
 
-    const completeTask = (id) => {
-        axios.put(`/api/task/${id}`)
-        .then(() => getTasks())
-        .catch(err => console.log(err))
-    }
-
     return (
         <div className='task-display'>
             <h1>{props.taskList}</h1>
             {tasks.sort((a, b) => a.complete_by - b.complete_by).map(task => (
-                <section key={task.task_id} className='task-container' onClick={() => setEditView(true)}>
-                    <div className='task-checkbox'>
-                        <input type='checkbox' id={`checkbox_${task.task_id}`} onChange={() => completeTask(task.task_id)}/>
-                        <label htmlFor={`checkbox_${task.task_id}`}></label>
-                    </div>  
-                    <p>{task.task_name}</p>
-                </section>
+                <TaskCard key={task.task_id} task={task} taskFn={getTasks}/>
             ))}
             {!addView
             ? (
