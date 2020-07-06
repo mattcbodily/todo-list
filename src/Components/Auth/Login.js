@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getUser} from '../../redux/reducer';
 import axios from 'axios';
+import './Auth.scss';
 
 const Login = props => {
     let [email, setEmail] = useState(''),
@@ -18,10 +19,15 @@ const Login = props => {
     }
 
     return (
-        <div>
+        <div className='auth-container'>
+            <h1>Log in</h1>
+            <label>Email</label>
             <input value={email} onChange={e => setEmail(e.target.value)}/>
+            <br/>
+            <label>Password</label>
             <input type='password' value={password} onChange={e => setPassword(e.target.value)}/>
-            <button onClick={handleLogin}>Login</button>
+            <br/>
+            <button onClick={handleLogin}>Log in</button>
             <p>Don't have an account? <Link to='/register'>Sign up here</Link></p>
         </div>
     )

@@ -1,0 +1,35 @@
+.auth-container {
+    height: calc(100vh - 65px);
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 10px;
+}
+
+.auth-container label {
+    display: block;
+    font-weight: bold;
+    text-align: left;
+}
+
+.auth-container input {
+    height: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    font-size: 16px;
+    margin: 5px 0px 20px 0px;
+}
+
+.auth-container button {
+    height: 30px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 5px;
+    background: #1A8FE3;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}

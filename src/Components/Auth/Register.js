@@ -20,10 +20,15 @@ const Register = props => {
     }
 
     return (
-        <div>
+        <div className='auth-container'>
+            <h1>Register</h1>
+            <label>First Name</label>
             <input value={firstName} onChange={e => setFirstName(e.target.value)}/>
+            <label>Last Name</label>
             <input value={lastName} onChange={e => setLastName(e.target.value)}/>
+            <label>Email</label>
             <input value={email} onChange={e => setEmail(e.target.value)}/>
+            <label>Password</label>
             <input type='password' value={password} onChange={e => setPassword(e.target.value)}/>
             <button onClick={handleRegister}>Register</button>
             <p>Already have an account? <Link to='/login'>Login here</Link></p>
