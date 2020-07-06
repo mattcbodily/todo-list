@@ -22,7 +22,7 @@ export default props => {
             <p>{task.task_name}</p>
             {editView
             ? (
-                <EditTask task={task}/>
+                <EditTask task={task} taskFn={props.taskFn} editViewFn={setEditView}/>
             )
             : null}
         </section>
