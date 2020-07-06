@@ -12,7 +12,7 @@
 
 .open {
     box-sizing: border-box;
-    // padding: 20px 50px;
+    padding: 20px 50px;
     animation-name: slide-open;
     animation-duration: 150ms;
     animation-timing-function: linear;
@@ -30,18 +30,35 @@
 }
 
 .menu-links {
+    width: 100%;
     text-decoration: none;
     color: black;
+    font-weight: 500;
     text-align: left;
     margin-bottom: 20px;
+    text-align: left;
+}
+
+.project-list-prompt {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    margin: 5px;
+}
+
+.project-list-prompt img {
+    margin-right: 5px;
 }
 
 .add-project {
+    width: 100%;
+    text-align: left;
     display: flex;
 }
 
 .add-project img {
-    margin-right: 15px;
+    margin-right: 5px;
 }
 
 .modal-backdrop {

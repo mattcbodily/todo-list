@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import ProjectModal from '../ProjectModal/ProjectModal';
+import chevronDown from '../../assets/chevron-down.svg';
 import addIcon from '../../assets/plus.svg';
 import './SideMenu.scss';
 
@@ -31,7 +32,7 @@ const SideMenu = props => {
                 <Link className='menu-links' to='/tasks' onClick={props.viewFn}>General</Link>
                 <Link className='menu-links' to='/tasks/today' onClick={props.viewFn}>Today</Link>
                 <Link className='menu-links' to='/tasks/upcoming' onClick={props.viewFn}>Upcoming</Link>
-                <p className='project-list-prompt' onClick={toggleDropdown}>Projects</p>
+                <p className='project-list-prompt' onClick={toggleDropdown}><img src={chevronDown} alt='more'/>Projects</p>
                 {projectDropdown
                     ? (
                         <nav className='project-list'>
