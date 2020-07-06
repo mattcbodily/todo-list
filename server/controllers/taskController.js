@@ -47,5 +47,21 @@ module.exports = {
         db.task.complete_task({id})
         .then(() => res.sendStatus(200))
         .catch(err => res.status(500).send(err))
+    },
+    editTaskDate: (req, res) => {
+        const {id, completeBy} = req.body,
+              db = req.app.get('db');
+
+        db.task.edit_task_date({id, completeBy})
+        .then(() => res.sendStatus(200))
+        .catch(err => res.status(500).send(err))
+    },
+    editTaskName: (req, res) => {
+        const {id, taskName} = req.body,
+              db = req.app.get('db');
+
+        db.task.edit_task_name({id, taskName})
+        .then(() => res.sendStatus(200))
+        .catch(err => res.status(500).send(err));
     }
 }

@@ -38,6 +38,8 @@ app.get('/api/upcoming-tasks/:id/:date', taskCtrl.getUpcomingTasks);
 app.get('/api/project-tasks/:id', taskCtrl.getProjectTasks);
 app.post('/api/task', taskCtrl.createTask);
 app.put('/api/task/:id', taskCtrl.completeTask);
+app.put('/api/complete-by', taskCtrl.editTaskDate);
+app.put('/api/task-name', taskCtrl.editTaskName);
 
 //Project Endpoints
 app.get('/api/projects/:id', projectCtrl.getUserProjects);
